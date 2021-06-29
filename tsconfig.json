@@ -1,0 +1,6 @@
+{
+    "compilerOptions":{
+        "rootDir":"C:/Users/user/Desktop/TypeScript/tsc",
+        "outDir": "./dist"
+    }
+}
