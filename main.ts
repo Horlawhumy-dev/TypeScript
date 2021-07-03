@@ -60,3 +60,64 @@ function isTrue(yes: bool): void {
 
 isTrue(true)
 
+// optional parameter
+type MyObj = {
+    first: string,
+    last?: string,
+    age?: number
+}
+
+function printName(obj: MyObj){
+    if(obj.last !== undefined){
+        console.log(obj.last.toUpperCase())
+    }
+    console.log(obj.last?.toUpperCase())
+}
+
+printName({first: "Arafat", last: "Olayiwola"})
+
+// union type in tsc
+let namee = prompt("Enter your name: ")
+
+function getNameLength(n: string): string | number {
+    return n.length
+}
+
+console.log(getNameLength(namee))
+
+enum E {
+    X,
+    Y,
+    Z,
+  }
+  
+  function f(obj: { X: number }) {
+    return obj.X;
+  }
+  
+  // Works, since 'E' has a property named 'X' which is a number.
+//   console.log(f(E));
+
+enum LogLevel {
+    ERROR,
+    WARN,
+    INFO,
+    DEBUG,
+  }
+  
+  /**
+   * This is equivalent to:
+   * type LogLevelStrings = 'ERROR' | 'WARN' | 'INFO' | 'DEBUG';
+   */
+  type LogLevelStrings = keyof typeof LogLevel;
+  
+  function printImportant(key: LogLevelStrings, message: string) {
+    const num = LogLevel[key];
+    if (num <= LogLevel.WARN) {
+      console.log("Log level key is:", key);
+      console.log("Log level value is:", num);
+      console.log("Log level message is:", message);
+    }
+  }
+// this log nothing since num > LogLevel.WARN which is 0
+  printImportant("INFO", "This is a message");

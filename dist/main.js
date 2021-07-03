@@ -33,3 +33,12 @@ function isTrue(yes) {
     console.log(yes ? "true" : "false");
 }
 isTrue(true);
+
+function printName(obj) {
+    var _a;
+    if (obj.last !== undefined) {
+        console.log(obj.last.toUpperCase());
+    }
+    console.log((_a = obj.last) === null || _a === void 0 ? void 0 : _a.toUpperCase());
+}
+printName({ first: "Arafat", last: "Olayiwola" });
