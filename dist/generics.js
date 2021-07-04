@@ -21,5 +21,28 @@ var user3 = {
     },
     prop: ['foo', 2, true]
 };
-console.log(object(user3));
-console.log(user3);
+// console.log(object(user3))
+// console.log(user3)
+function firstElement(arr) {
+    return arr[0];
+}
+var s = firstElement([true, 2, 'c']);
+// console.log(typeof s)
+function firstElement2(arr2) {
+    return arr2[0];
+}
+// firstElement2 ahs type of Type
+// But having instatiated, it has type of string | number like below
+var a = firstElement2([1, 'a']);
+// console.log(typeof a)
+function filter1(arr, func) {
+    return arr.filter(func);
+}
+// console.log(filter1([1, 2, 3, 4, 'a'], (n) => n > 2));
+function myForEach(arr, callback) {
+    for (var i = 0; i < arr.length; i++) {
+        // I don't feel like providing the index today
+        callback(arr[i], i);
+    }
+}
+myForEach([1, 2, 3, 5], function (a, i) { return console.log(a, i); });

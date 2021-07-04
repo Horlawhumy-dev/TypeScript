@@ -33,7 +33,6 @@ function isTrue(yes) {
     console.log(yes ? "true" : "false");
 }
 isTrue(true);
-
 function printName(obj) {
     var _a;
     if (obj.last !== undefined) {
@@ -42,3 +41,37 @@ function printName(obj) {
     console.log((_a = obj.last) === null || _a === void 0 ? void 0 : _a.toUpperCase());
 }
 printName({ first: "Arafat", last: "Olayiwola" });
+// union type in tsc
+var namee = prompt("Enter your name: ");
+function getNameLength(n) {
+    return n.length;
+}
+// console.log(getNameLength(namee))
+var E;
+(function (E) {
+    E[E["X"] = 0] = "X";
+    E[E["Y"] = 1] = "Y";
+    E[E["Z"] = 2] = "Z";
+})(E || (E = {}));
+function f(obj) {
+    return obj.X;
+}
+// Works, since 'E' has a property named 'X' which is a number.
+//   console.log(f(E));
+var LogLevel;
+(function (LogLevel) {
+    LogLevel[LogLevel["ERROR"] = 0] = "ERROR";
+    LogLevel[LogLevel["WARN"] = 1] = "WARN";
+    LogLevel[LogLevel["INFO"] = 2] = "INFO";
+    LogLevel[LogLevel["DEBUG"] = 3] = "DEBUG";
+})(LogLevel || (LogLevel = {}));
+function printImportant(key, message) {
+    var num = LogLevel[key];
+    if (num <= LogLevel.WARN) {
+        console.log("Log level key is:", key);
+        console.log("Log level value is:", num);
+        console.log("Log level message is:", message);
+    }
+}
+// this log nothing since num > LogLevel.WARN which is 0
+//   printImportant("INFO", "This is a message");

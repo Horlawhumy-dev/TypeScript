@@ -83,7 +83,7 @@ function getNameLength(n: string): string | number {
     return n.length
 }
 
-console.log(getNameLength(namee))
+// console.log(getNameLength(namee))
 
 enum E {
     X,
@@ -120,4 +120,4 @@ enum LogLevel {
     }
   }
 // this log nothing since num > LogLevel.WARN which is 0
-  printImportant("INFO", "This is a message");
+//   printImportant("INFO", "This is a message");
